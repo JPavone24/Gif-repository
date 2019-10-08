@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Animaltastic</title>
+  <style> 
+  body{
+    background-color: black;
+  }
+  img{
+    height: 200px;
+    width:200px;
+  }
+  #heading{
+    text-align: center;
+    color: white;
+  }
+  #bunniesDiv{
+    position: fixed;
+  left: 0px;
+  top: 200px;
+  background-color: red;
+  padding: 20px;
+  }
+  #bunnies{
+  position: fixed;
+  left: 40px;
+  top: 400px;
+  background-color: antiquewhite
+  }
+
+  #catsDiv{
+    position: fixed;
+  left: 250px;
+  top: 200px;
+  background-color: red;
+  padding: 20px;
+  }
+#cats{
+  position: fixed;
+  left: 310px;
+  top: 400px;
+ 
+  }
+
+  #dogsDiv{
+  position: fixed;
+  left: 500px;
+  top: 200px;
+  background-color: red;
+  padding: 20px;
+  }
+
+  
+  #dogs{
+  position: fixed;
+  left: 540px;
+  top: 400px;
+  }
+
+  #elephantsDiv{
+  position: fixed;
+  left: 750px;
+  top: 200px;
+  background-color: red;
+  padding: 20px;
+  }
+
+  
+  #elephants{
+  position: fixed;
+  left: 790px;
+  top: 400px;
+  }
+
+  #turtlesDiv{
+  position: fixed;
+  left: 1000px;
+  top: 200px;
+  background-color: red;
+  padding: 20px;
+  }
+
+  
+  #turtles{
+  position: fixed;
+  left: 1040px;
+  top: 400px;
+  }
+
+
+  /* #elephants{
+    position: absolute;
+  left: 450px;
+  top: 200px;
+  }
+
+  #turtles{
+    position: absolute;
+  left: 600px;
+  top: 200px;
+  } */ */
+
+    </style>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <h1 id = "heading">Click The buttons for Gifs of Pets!</h1>
+ 
+  <div class = "animals" id = "bunniesDiv">
+  <img src = "images/bunny.webp">
+ <button id = "bunnies">Click for Bunnies</button>
+</div>
+
+<div class = "animals" id = "catsDiv">
+ <img src = "images/cat.jpg">
+ <button id = "cats">Click for Cats</button>
+</div>
+
+<div class = "animals" id = "dogsDiv">
+ <img src = "images/dog.jpg">
+ <button id = "dogs">Click for Dogs</button>
+</div>
+
+<div class = "animals" id = "elephantsDiv">
+ <img src = "images/elephant.png">
+ <button id = "elephants">Click for Elephants</button>
+</div>
+
+<div class = "animals" id = "turtlesDiv">
+ <img src = "images/turtle.jpg">
+ <button id = "turtles">Click for turtles</button>
+</div>
+
+  </div>
+
+
+    <div id="emptyDiv"></div>
+  </form>
+
+  <div id="animals">
+
+    <script type = "text/javascript">
+$("#bunnies").click(function(){
+
+     var type = "cute+bunnies";
+      var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=TfFZyAFmVdLwVaqR94hS6NvKxrgIDjtL";
+  
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+        .then(function(response) {
+          var results = response.data;
+  
+          console.log(results[0].images.downsized.url);
+          for (var i = 0; i < 10; i++){
+          $("#emptyDiv").append("<img src =" + results[i].images.downsized.url + " >")
+          }
+        })
+      })
+
+      $("#cats").click(function(){
+
+var type = "cute+cats";
+ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=TfFZyAFmVdLwVaqR94hS6NvKxrgIDjtL";
+
+ $.ajax({
+   url: queryURL,
+   method: "GET"
+ })
+   .then(function(response) {
+     var results = response.data;
+
+     console.log(results[0].images.downsized.url);
+     for (var i = 0; i < 10; i++){
+     $("#emptyDiv").append("<img src =" + results[i].images.downsized.url + " >")
+     }
+   })
+ })
+
+ $("#dogs").click(function(){
+
+var type = "cute+dogs";
+ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=TfFZyAFmVdLwVaqR94hS6NvKxrgIDjtL";
+
+ $.ajax({
+   url: queryURL,
+   method: "GET"
+ })
+   .then(function(response) {
+     var results = response.data;
+
+     console.log(results[0].images.downsized.url);
+     for (var i = 0; i < 10; i++){
+     $("#emptyDiv").append("<img src =" + results[i].images.downsized.url + " >")
+     }
+   })
+ })
+
+ $("#dolphins").click(function(){
+
+var type = "elephants";
+ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=TfFZyAFmVdLwVaqR94hS6NvKxrgIDjtL";
+
+ $.ajax({
+   url: queryURL,
+   method: "GET"
+ })
+   .then(function(response) {
+     var results = response.data;
+
+     console.log(results[0].images.downsized.url);
+     for (var i = 0; i < 10; i++){
+     $("#emptyDiv").append("<img src =" + results[i].images.downsized.url + " >")
+     }
+   })
+ })
+
+ $("#dolphins").click(function(){
+
+var type = "elephants";
+ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=TfFZyAFmVdLwVaqR94hS6NvKxrgIDjtL";
+
+ $.ajax({
+   url: queryURL,
+   method: "GET"
+ })
+   .then(function(response) {
+     var results = response.data;
+
+     console.log(results[0].images.downsized.url);
+     for (var i = 0; i < 10; i++){
+     $("#emptyDiv").append("<img src =" + results[i].images.downsized.url + " >")
+     }
+   })
+ })
+
+ $("#turtles").click(function(){
+
+var type = "turtles";
+ var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=TfFZyAFmVdLwVaqR94hS6NvKxrgIDjtL";
+
+ $.ajax({
+   url: queryURL,
+   method: "GET"
+ })
+   .then(function(response) {
+     var results = response.data;
+
+     console.log(results[0].images.downsized.url);
+     for (var i = 0; i < 10; i++){
+     $("#emptyDiv").append("<img src =" + results[i].images.downsized.url + " >")
+     }
+   })
+ })
+      </script>
+      </script>
+
+      
+  </div>
+  
+</body>
+</html>
